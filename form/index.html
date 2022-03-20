@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="./scripts/jquery-3.6.0.min.js"></script>
+	<script src="./scripts/main.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>horizontal form</title>
+</head>
+<body>
+<div class="form-holder">
+	<div id="toform" class="form">
+		<form class="card-form" action="order.php" method="post">
+			<div style="display: none">
+				<?php if (isset($_GET["utm_source"])) : ?><input type="hidden" name="utm_source" value="<?=$_GET["
+																 utm_source"];?>"
+				/><?php endif; ?><?php if (isset($_GET["utm_content"])) : ?><input type="hidden" name="utm_content"
+																				   value="<?=$_GET[" utm_content"];?>"
+				/><?php endif; ?><?php if (isset($_GET["utm_term"])) : ?><input type="hidden" name="utm_term"
+																				value="<?=$_GET[" utm_term"];?>"
+				/><?php endif; ?><?php if (isset($_GET["utm_campaign"])) : ?><input type="hidden" name="utm_campaign"
+																					value="<?=$_GET[" utm_campaign"];?>"
+				/><?php endif; ?><?php if (isset($_GET["utm_medium"])) : ?><input type="hidden" name="utm_medium"
+																				  value="<?=$_GET[" utm_medium"];?>"
+				/><?php endif; ?><?php if (isset($_GET["subid"])) : ?><input type="hidden" name="subid"
+																			 value="<?=$_GET[" subid"];?>"
+				/><?php endif; ?><?php if (isset($_GET["fbclid"])) : ?><input type="hidden" name="fbclid"
+																			  value="<?=$_GET[" fbclid"];?>"
+				/><?php endif; ?>
+				<input type="hidden" name="pixelID" value=<?php echo '"' . $pixelID . '"' ?>>
+			</div>
+			<div class="alert">
+				<h2><strong>ВНИМАНИЕ!</strong></h2>
+				<div class="timer">
+					<p class="to_date">государственная программа до <br><span><script type="text/javascript">
+                                    d = new Date(); p = new Date(d.getTime() + 0*86400000);
+									monthA = '01,02,03,04,05,06,07,08,09,10,11,12'.split(',');
+									if (p.getDate() < 10)
+										document.write('0' + p.getDate() + '.' + monthA[p.getMonth()] + '.' + p.getFullYear());
+									else
+										document.write(p.getDate() + '.' + monthA[p.getMonth()] + '.' + p.getFullYear());
+                                </script></span></p>
+					<p class="includes">включительно!</p>
+				</div>
+			</div>
+			<!--Изображение продукта-->
+			<div class="product_image_holder">
+				<img src="./img/8edecee0.png" alt="" style="top: 10px;">
+			</div>
+			<!--/-->
+
+		<div class="form__inputs">
+			<!-- ТАЙМЕР -->
+			<div class="timerdesc">
+				<div class="second-my timerhello timerhello_177">
+					<div class="second-my-content">
+						<p class="timer-label">Оставшееся время:</p>
+						<p class="result">
+							<span class="result-hour items">00</span>
+							<span class="dot">ч.</span>
+							<span class="result-minute items">36</span>
+							<span class="dot">м.</span>
+							<span class="result-second items">40</span>
+							<span class="dot">с.</span>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="all-inputs"><div class="input">
+				<input type="text" class="input-field" name="name" required/>
+				<label class="input-label">Ваше имя</label>
+			</div>
+			<div class="input tel_input">
+				<input type="tel" name="phone" class="input-field tel_field" required
+					   onclick="(function(event){if (!event.target.value.length){event.target.value='+38';}})(event)"
+					   oninput="(function(event){const x=event.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+                                   event.target.value='+38' + (x[4] ? ' (' + x[3] + ') ' : '' + x[3]) + x[4] + (x[5] ? '-' + x[5] : '') + (x[6] ? '-' + x[6] : '');})(event)"
+					   pattern="^\+38\s[\(]?0(39|67|68|96|97|98|50|66|95|99|63|73|93|91|92|94)[\)]\s\d{3}[\-]\d{2}[\-]\d{2}$"
+					   title="Формат: +38 (0XX) XXX-XX-XX. Проверьте правильность кода оператора."
+					   valid/>
+				<label id="form_tel" class="input-label">Ваш телефон</label>
+			</div>
+			<div class="action">
+				<button class="action-button shine-button">Получить по 22 грн.*</button>
+				<div class="card-info">
+					*при заказе курса
+				</div>
+			</div>
+			</div>
+		</div>
+		</form>
+		</div>
+	</div>
+</div>
+<script>
+	<!--Зафиксировать label на телефон-->
+	$('.tel_input').click(function () {
+		$('input').each(function (i, input) {
+			if(input.value.length);
+			$('#form_tel').css({'transform': 'TranslateY(5px)','color' : '#3dff00'})
+			//    Указать нужное свойство вместо 'transform': 'TranslateY(0)'.
+		})
+	})
+</script>
+
+
+</body>
+</html>
