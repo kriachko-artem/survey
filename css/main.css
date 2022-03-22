@@ -68,9 +68,6 @@ main .top-block .main-textblock{
     display: block;
     width: 69px;
 }
-.image-holder img{
-    width: 100%;
-}
 .image-block{
     display: flex;
     align-items: flex-end;
@@ -230,6 +227,9 @@ main .top-block .main-textblock{
         flex-direction: column;
         align-items: center;
     }
+    .image-block{
+        width: unset;
+    }
     .main-textblock .text-and-photo .text,
     .main-textblock .text-and-photo .image-block .image-holder img{
         width: unset;
@@ -251,7 +251,7 @@ main .top-block .main-textblock{
         width: 90vw;
     }
     .main-textblock .image-holder{
-        height: unset;
+        height: 100%;
     }
     .main-textblock .image-holder img{
         width: 100%;
